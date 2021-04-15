@@ -1,0 +1,10 @@
+#a graph where the vertices are all part of a cycle
+4
+a
+b
+c
+d
+a b 1
+b c 1
+c d 1
+d a 1

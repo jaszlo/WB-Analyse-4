@@ -1,0 +1,35 @@
+image: maven:latest
+
+variables:
+  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+before_script:
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan -t rsa goethe.se.uni-hannover.de >> ~/.ssh/known_hosts
+
+build:
+  stage: build
+  script:
+    - mvn $MAVEN_CLI_OPTS compile
+
+test:
+  stage: test
+  script:
+    - mvn $MAVEN_CLI_OPTS test
+
+deploy:
+  stage: deploy
+  script:
+    - rpm -i https://yum.oracle.com/repo/OracleLinux/OL7/openstack30/x86_64/getPackage/sshpass-1.05-5.el7.x86_64.rpm
+    - mvn $MAVEN_CLI_OPTS deploy
+    - sshpass -p $SSH_SERVER_PASS ssh -o StrictHostKeyChecking=no Analyse_4@goethe.se.uni-hannover.de "~/de/uni-hannover/se/wb-analyse-4/analyse4-server/1.0/close_server.sh && sleep 5 && ~/de/uni-hannover/se/wb-analyse-4/analyse4-server/1.0/start_server.sh"
+  only:
+    - master
+

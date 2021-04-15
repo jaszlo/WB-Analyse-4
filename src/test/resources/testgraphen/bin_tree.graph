@@ -1,0 +1,15 @@
+#the complete binary tree with 7 vertices
+7
+a
+b
+c
+d
+e
+f
+g
+a b 1
+a c 1
+b d 1
+b e 1
+c f 1
+c g 1

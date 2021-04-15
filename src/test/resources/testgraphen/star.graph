@@ -1,0 +1,13 @@
+#a graph where 1 vertex is the center and all other vertices are connected to that one
+6
+a
+b
+c
+d
+e
+f
+a b 1
+a c 1
+a d 1
+a e 1
+a f 1

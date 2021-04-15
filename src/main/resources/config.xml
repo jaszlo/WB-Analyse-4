@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="port">9993</entry>
+    <entry key="logger_level">BASIC</entry>
+    <entry key="admin_user">admin</entry>
+    <entry key="admin_pass"></entry>
+    <entry key="db_url">jdbc:mariadb://goethe.se.uni-hannover.de:3306/VirtuHoS_4</entry>
+    <entry key="db_user">Analyse_4</entry>
+    <entry key="db_pass">bgp4N6RE#8qU</entry>
+    <entry key="db_production_table_meetings">a4_meetings</entry>
+    <entry key="db_production_table_persons">a4_persons</entry>
+    <entry key="default_graph_options">INTERACTION_SUM</entry>
+    <entry key="talk_weight">1</entry>
+    <entry key="meeting_weight">1.2</entry>
+    <entry key="document_weight">1.7</entry>
+</properties>
